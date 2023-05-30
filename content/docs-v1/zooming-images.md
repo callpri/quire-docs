@@ -9,7 +9,49 @@ aliases:
   - /documentation/zooming-images/
 ---
 
-To add high-resolution zooming images to your project, Quire uses the [International Image Interoperability Framework (IIIF)](https://iiif.io/). Within your Quire project, you can either point to existing IIIF assets or create your own. IIIF zooming images can be displayed within your Markdown pages using the `q-figure-zoom` shortcode or  the built-in image viewer on entry pages. (Learn more about entry pages in the [*Collection Catalogues*](/docs-v1/collection-catalogues) section of this documentation.)
+To add high-resolution zooming images to your project, Quire uses the [International Image Interoperability Framework (IIIF)](https://iiif.io/). Within your Quire project, you can either point to existing IIIF assets or create your own. 
+
+## Create a Zooming Image
+
+Zooming images are created by tiling a large image into numerous small square tiles at varying levels of zoom, and using IIIF as a standardized way of organizing and delivering them. 
+
+Start by adding a high resolution image to your `content/_assets/images` directory and add `zoom: true` to the entry for the figure in `figures.yaml`. Quire will automatically tile the image when you run `quire preview` or `quire build`.
+
+```
+- id: "fig-01"
+  src: figures/figure-01-high-res.jpg
+  zoom: true
+  alt:
+  caption:
+```
+
+The source image can be JPG, JPG2000, TIF, PNG, or SVG.
+
+
+The tiled image can be used the same as any other image in Quire: with the {% figure %} and {% figuregroup %} shortcodes, as well as in the figure lightbox on entry pages.
+
+Any size image can be used, but we recommend targeting sizes around 5 or 6 levels of zoom. This is typically satisfying 
+
+| Zoom Levels | Size of Image on Longest Side | 
+| ---------------------- | -------------- |
+| 4 | 2,048px |
+| 5 | 4,096px |
+| 6 | 8,192px |
+| 7 | 16,384px |
+| 8 | 32,768px |
+
+## Hosting Projects with Zooming Images
+
+TK
+
+## Using External IIIF Images
+
+Because Quire uses a IIIF as a standard, it can display IIIF assets created and hosted elsewhere. This can be useful for institutions who already have a IIIF image infrastructure in place, or as a relatively easy way of making use of the many free and open access IIIF images available online.
+
+
+
+
+
 
 ## What is IIIF?
 
